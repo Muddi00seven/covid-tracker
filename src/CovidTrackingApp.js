@@ -3,15 +3,22 @@ import {Card , Chart , CountryPicker} from './Components';
 import { fetchData } from './api';
 
 class CovidTrackingApp extends React.Component {
+    state = {
+        data: {},
+    }
+
     async componentDidMount() {
         const data = await fetchData();
-        console.log(data)
-         }
+    
+        this.setState({ data });
+      }
+    
     render() {
+        const { data } = this.state;
 return (
 
     <div>
-     <Card/> 
+     <Card data={data}/> 
      <Chart/> 
      <CountryPicker/>
   </div>
