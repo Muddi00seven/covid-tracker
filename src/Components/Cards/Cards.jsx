@@ -3,8 +3,10 @@ import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 
 // import CountUp from 'countup';
 import { styles } from './Cards.module.css'
-const Cards = ( confirmed , recovered , deaths ) => {
-    
+const Cards = ( {data : {confirmed , recovered , deaths  } }) => {
+    if(!confirmed) {
+      return 'loading'
+    }
     return (
     <div >
     <Grid container spacing={3} justify="center">
@@ -16,6 +18,7 @@ const Cards = ( confirmed , recovered , deaths ) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
+            {confirmed.value}
             </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
@@ -30,6 +33,7 @@ const Cards = ( confirmed , recovered , deaths ) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
+            {recovered.value}
             </Typography>
             <Typography variant="body2" component="p">
               Number of recoveries from COVID-19.
@@ -44,9 +48,11 @@ const Cards = ( confirmed , recovered , deaths ) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
+            {deaths.value}
+
             </Typography>
             <Typography variant="body2" component="p">
-              Number of deaths caused by COVID-19.
+              Numbers of deaths
             </Typography>
           </CardContent>
         </Grid>
