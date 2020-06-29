@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import CountUp from 'react-countup'
 
 // import CountUp from 'countup';
 // import { styles } from './Cards.module.css'
@@ -18,7 +19,13 @@ const Cards = ( {data : {confirmed , recovered , deaths  } }) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
-            {confirmed.value}
+              <CountUp 
+              start={0}
+              end={confirmed.value}
+              duration={1}
+
+              />
+            
             </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
@@ -33,7 +40,12 @@ const Cards = ( {data : {confirmed , recovered , deaths  } }) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
-            {recovered.value}
+            <CountUp 
+              start={0}
+              end={recovered.value}
+              duration={0.8}
+
+              />
             </Typography>
             <Typography variant="body2" component="p">
               Number of recoveries from COVID-19.
@@ -48,7 +60,13 @@ const Cards = ( {data : {confirmed , recovered , deaths  } }) => {
             <Typography variant="h5" component="h2">
             </Typography>
             <Typography color="textSecondary">
-            {deaths.value}
+            <CountUp 
+              start={0}
+              end={deaths.value}
+              duration={0.5}
+
+              />
+            
 
             </Typography>
             <Typography variant="body2" component="p">

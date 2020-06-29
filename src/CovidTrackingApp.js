@@ -1,7 +1,6 @@
 import React from 'react';
 import {Card , Chart , CountryPicker} from './Components';
 import { fetchData } from './api';
-
 class CovidTrackingApp extends React.Component {
     state = {
         data: {},
