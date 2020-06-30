@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card , Chart , CountryPicker} from './Components';
 import { fetchData } from './api';
+import styles from './App.module.css'
 class CovidTrackingApp extends React.Component {
     state = {
         data: {},
@@ -12,13 +13,17 @@ class CovidTrackingApp extends React.Component {
         this.setState({ data });
       }
     
+      handleCountryChange = async (country) => {
+            const fetchedData = await fetchData(country);
+this.setState({data : fetchedData });
+    }
     render() {
         const { data } = this.state;
 return (
 
-    <div>
+    <div className={styles.container}>
      <Card data={data}/> 
-     <CountryPicker/>
+     <CountryPicker handleCountryChange={this.handleCountryChange}/>
 
      <Chart/> 
   </div>
