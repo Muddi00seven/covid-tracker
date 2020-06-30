@@ -18,8 +18,9 @@ return (
 
     <div>
      <Card data={data}/> 
-     <Chart/> 
      <CountryPicker/>
+
+     <Chart/> 
   </div>
 )
 
